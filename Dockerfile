@@ -6,4 +6,5 @@ COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
 
 #Declare Environment Variables
 ENV BACKEND_HOST \
-    BACKEND_PORT
+    BACKEND_PORT \
+    STATS_PORT
