@@ -19,7 +19,7 @@ When running the container two Environment Variables are required
 ### Building the Container
 
 ```
-docker build -t docker-tcp-proxy .
+docker build -t docker-redis-proxy .
 ```
 
 ### Running the Container
@@ -27,13 +27,5 @@ docker build -t docker-tcp-proxy .
 The following example forward TCP requests on port `6379` to an Elasticache instance on `my-elasticache.domain.com:6379`
 
 ```
-docker run -it -p 6379:6379 --rm -e "BACKEND_HOST=my-elasticache.domain.com" -e "BACKEND_PORT=6379 docker-tcp-proxy
-```
-
-#### Environment File
-Create the environment `.env.export` file with the `BACKEND_HOST` and `BACKEND_PORT` values,
-
-```
-BACKEND_HOST=redis.your-domain.com
-BACKEND_PORT=6379
+docker run -it -p 6379:6379 --rm -e "BACKEND_HOST=my-elasticache.domain.com" -e "BACKEND_PORT=6379 docker-redis-proxy"
 ```
