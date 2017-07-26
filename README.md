@@ -15,6 +15,8 @@ When running the container two Environment Variables are required
   - IP or hostname to proxy connections to
 - `BACKEND_PORT`
   - The port number to proxy connections to
+- `STATS_PORT`
+  - The port number for haproxy's stats endpoint
 
 ### Building the Container
 
@@ -27,5 +29,5 @@ docker build -t docker-redis-proxy .
 The following example forward TCP requests on port `6379` to an Elasticache instance on `my-elasticache.domain.com:6379`
 
 ```
-docker run -it -p 6379:6379 --rm -e "BACKEND_HOST=my-elasticache.domain.com" -e "BACKEND_PORT=6379 docker-redis-proxy"
+docker run -it -p 6379:6379 -p 9090:9090 --rm -e "BACKEND_HOST=my-elasticache.domain.com" -e "BACKEND_PORT=6379" -e "STATS_PORT=9090" docker-redis-proxy
 ```
